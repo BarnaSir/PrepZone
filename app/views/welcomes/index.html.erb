@@ -1,0 +1,21 @@
+<%= render 'navbar' %>
+<div id="main">
+<div class="wrapper">
+      <script>
+      $(".sidebar-collapse").sideNav();
+   </script>
+   <div >
+      <section id="content" style="padding-top:64px">
+         <%= render 'shared/flash' %>
+         <style>
+            .pad-top i{color:white;font-size: 7em !important;}
+         </style>
+         <div class="row mybox-container">
+            <%= render 'dboard' %>
+         </div>
+      </section>
+   </div>
+</div>
+
+
+

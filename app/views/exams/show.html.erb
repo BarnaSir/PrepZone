@@ -1,0 +1,485 @@
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="wholepage examContainer well" style="min-height:100%; margin-bottom:0;">
+	<style>
+.is-countdown {
+	border: 1px solid #ccc;
+	background-color: #eee;
+}
+.countdown-rtl {
+	direction: rtl;
+}
+.countdown-holding span {
+	color: #888;
+}
+.countdown-row {
+	clear: both;
+	width: 100%;
+	padding: 0px 2px;
+	text-align: center;
+}
+.countdown-show1 .countdown-section {
+	width: 98%;
+}
+.countdown-show2 .countdown-section {
+	width: 48%;
+}
+.countdown-show3 .countdown-section {
+	width: 32.5%;
+}
+.countdown-show4 .countdown-section {
+	width: 24.5%;
+}
+.countdown-show5 .countdown-section {
+	width: 19.5%;
+}
+.countdown-show6 .countdown-section {
+	width: 16.25%;
+}
+.countdown-show7 .countdown-section {
+	width: 14%;
+}
+.countdown-section {
+	display: block;
+	float: left;
+	font-size: 75%;
+	text-align: center;
+}
+.countdown-amount {
+    font-size: 200%;
+}
+.countdown-period {
+    display: block;
+}
+.countdown-descr {
+	display: block;
+	width: 100%;
+}
+.attempt{
+	background:#555;
+	border:1px solid #987;
+	display:inline-block;
+	color:white;
+	padding:0px 3px;
+}
+.content-remain-attempt{
+	font-size:18px;
+	font-weight:300;
+}
+*{
+	font-family:Roboto;
+  color:#24292e;
+}
+label p{
+  margin-bottom:0 !important;
+}
+.sidebar-item {
+	text-align:center;
+	font-weight:100;
+	margin:0;
+	font-size:30px;
+}
+#toast-container {
+  top: auto !important;
+  /* right: auto !important; */
+  bottom: 10%;
+  left:auto !important;
+	right:auto!important;
+}
+/* .nice-font{ */
+/*   font-size:18px; */
+/*   font-weight:100; */
+/* } */
+.user_score{
+	font-size:30px;
+	font-weight:300;
+}
+.outerside{
+	/* margin:25px; */
+	color:rgba(0,0,0,0.87);
+	font-weight:300;
+}
+.clocktime{
+	font-size:25px;
+}
+@media(max-width:992px){
+  .a{
+    margin-top:-30px !important;
+  }
+}
+@media(max-width:697px) and (min-width:600px){
+	.outerside{
+		margin-bottom:0px !important;
+	}
+}
+@media(max-width:700px){
+	.outerside{
+		margin:24px;
+	}
+}
+@media(min-width:1000px){
+	.question-remaining{
+		padding-right:35px !important;
+	}
+	.question-attempted{
+		padding-left:35px !important;
+	}
+}
+@media(max-width:725px) and (min-width:600px) {
+	div.content-attempt{
+		margin-left:-30px !important;
+	}
+	div.content-remaining{
+		margin-right:-30px !important;
+	}		
+}
+@media(max-width:700px){
+.clocktime{
+		font-size:17px;
+	}
+}
+@media (min-width:700px){
+.clocktime{
+		font-size:18px !important;
+	}
+}
+@media(max-width:700px) and (min-width:600px){
+.clocktime{
+	margin:0;	
+	}
+}
+@media(max-width:600px){	
+	.timer{
+		margin-top:20px;
+	}
+}
+.sans{
+font-family: "Open Sans"
+}
+.choice{
+  padding:5px;
+  background:#f5f5f5;
+  margin:15px 7px;
+  cursor:pointer;
+}
+.choice:hover, .choice:active{
+  background:#ddd;
+}
+label{
+	color:black;
+	font-size:1.05em !important;
+}
+
+label:active{
+  background:#ddd;
+}
+.abc{
+  background:#ddd;
+}
+input[type="radio"], input[type="checkbox"]{
+  visibility: hidden;
+}
+@media(max-width:991px){
+}
+div.question p{
+  font-size:1.05em ;
+}
+@media(max-width:600px){
+	.sidebar{
+		margin-top: 30px;
+	}
+}
+
+
+[type="radio"]:not(:checked) + label:before, [type="radio"]:not(:checked) + label:after{
+	border:none;
+}
+
+.pagination li.active{
+	display:none;
+}
+
+.pagination li.active+li{
+	display:none;
+}
+.outerContainer{
+	margin:25px !important;
+}
+div.report{
+position:relative;top:18px;display:inline-block;float:right;
+}
+.report i{
+color:#039be5;
+}
+.report-link{
+padding:3px;
+}
+.examName{
+font-weight:100;display:inline-block;
+}
+.box{
+	display:none;
+} 
+@media(min-width:701px){
+	.wrapper{
+		padding:30px;
+	}
+}
+.add-option:hover{
+	color:#26a69a!important;	
+	background:white!important;
+}
+.examarea{
+
+}
+.addwrapper{
+}
+.review{
+	display:inline-block;
+	font-size:36px;
+	position:relative;
+	top:-10px;
+	font-weight:300;
+	left:20px;
+}
+.collapsible-header{
+	padding:15px;
+}
+.collapsible-body{
+	padding: 10px;
+}
+
+</style>
+<div class="start whole-page-div">
+	<button type="text" id="" class="btn start-btn">Start! Get Going</button>
+</div>
+<script charset="utf-8">
+$(document).ready(function(){
+	$('.start-btn').click(function(){
+		$('.box').css('display','block');
+		$('.start').css('display','none');
+	})
+});
+</script>
+<div class ="outerContainer" data-exam="<%#= render(template: "exams/show.json.rabl")%>" >
+  <div class="box container-fluid">
+    <div class="wrapper row" >
+      <div class="col examarea m7 s12" style="background-color:white;padding:10px;box-shadow: 0px 0px 10px #ccc;">
+						<h4 class="examName" style="font-size:20px;"></h4><div class="report " style=""><%= link_to '<i class="fa fa-2x fa-bars"></i>'.html_safe, '#', class:'dropdown-button report-link', :'data-activates' => 'dropdown1', :'data-constrainwidth' => 'false', :'data-beloworigin' => 'true' %>
+						<ul id='dropdown1' class='dropdown-content' style="">
+    <li><a href="#! " style="color:#fff;font-size:13px;" class="blue add-option">Report Question</a></li>
+    <li><a href="#! " class="blue add-option" style="color:#fff;font-size:13px;">Solution</a></li>
+  </ul>
+						</div>
+						<div class="preloader">
+						</div>
+							<div>
+									<div class="questionContainer">
+										<div align="center">
+										</div>
+									</div>
+                  <div class="choice-wrapper" style="padding-top:15px">
+                      <div class="option">
+        				      </div>
+                  </div>
+                </div>
+          <center>
+            <%= button_tag("Submit", :class => "submit btn blue","data-disable-with" => "hey", style:"display:none")%>
+					<button type="" id="demo" class='btn blue'>Next</button>
+          </center>
+      </div>
+      <div class=" sidebar m4 s12 col offset-m1" style="background-color:white;box-shadow: 0px 0px 10px #ccc;">
+				<div class="outerside">
+					<div class="timer">
+						<style type="text/css">
+							.clocktime{
+								text-align:center;font-weight:400;padding:12px;
+							}
+							.remaining{
+								font-size:50px;text-align:center;font-weight:300;margin:0 !important;
+							}
+							.countdown-period, .countdown-amount{
+								font-size:24px;
+							}
+							.is-countdown{
+								border:none;
+							}
+						</style>
+					<h3 class="clocktime" style="">Time Remaining</h3>
+					<h3 class="remaining"></h3>
+				</div>
+				<div class="col s6 question-attempted" style="display:inline-block;padding:10px 0;font-size:18px;padding-bottom:10px;">
+					<center>
+</center>
+				</div>
+				<div class="col s6 question-remaining" style="display:inline-block;padding:10px 0;font-size:18px;padding-bottom:10px;">
+					<center>
+</center>
+				</div>
+				<center>
+								<div class="s12" style="display:inline-block;padding:20px;font-size:18px;padding-top:0;">
+					<%= link_to "Close this session", root_path, class:"btn red" %>
+									<!-- <button type="text" class="btn red">Close this session</button> -->
+				<button type="text" class="submitall" style="display:none"></button>
+      </div>
+				</center>
+	
+				</div>
+			    </div>  
+  </div>
+</div>
+</div>
+<script charset="utf-8">	
+var checked=[];
+var total_question;
+var currently_checked;
+var jsoncollection;
+	$('.btn, .submitall, .submit').click(function(){
+    $("input:checked").each(function(){
+          checked.push($(this).val());
+					currently_checked=true;
+        })
+});
+$(document).ready(function(){
+  var i = 0;
+	$('.examName').html('<%= @exam.name %>');		
+
+	$('#demo, .start-btn').click(function(){
+
+	$('.remaining').countdown({until: +1000,format:'MS',onTick: highlightLast5,onExpiry: expired});
+	function expired(){
+		$('button.submitall').trigger("click");
+	}
+
+	function highlightLast5(periods) { 
+    if ($.countdown.periodsToSeconds(periods) === 5) { 
+        $(this).addClass('red'); 
+				$(this).css('color','white');
+    } 
+	}
+	$('.questionContainer').html('<center><div class="preloader-wrapper big active"> <div class="spinner-layer spinner-blue"> <div class="circle-clipper left"> <div class="circle"></div> </div><div class="gap-patch"> <div class="circle"></div> </div><div class="circle-clipper right"> <div class="circle"></div> </div> </div> <div class="spinner-layer spinner-red"> <div class="circle-clipper left"> <div class="circle"></div> </div><div class="gap-patch"> <div class="circle"></div> </div><div class="circle-clipper right"> <div class="circle"></div> </div> </div> <div class="spinner-layer spinner-yellow"> <div class="circle-clipper left"> <div class="circle"></div> </div><div class="gap-patch"> <div class="circle"></div> </div><div class="circle-clipper right"> <div class="circle"></div> </div> </div> <div class="spinner-layer spinner-green"> <div class="circle-clipper left"> <div class="circle"></div> </div><div class="gap-patch"> <div class="circle"></div> </div><div class="circle-clipper right"> <div class="circle"></div> </div> </div> </div></center>');
+
+  		$.getJSON('<%= j practise_path(@exam) %>',function(data){
+			jsoncollection=data;
+			total_question=data.questions.length;
+		if(($('input.with-gap').is(':checked')) && ($('.choice').length) /* && i!==0*/)
+	 {
+	 i++;
+}
+	 else{
+	 Materialize.toast('Please choose an option', 3000,'rounded');
+	 	 }
+				$('.questionContainer').html(data.questions[i].question_content);
+        $('.option').html(' ');
+				for(j=0; j < data.questions[i].answers.length ;j++){
+
+					$('.option').append('<div class="choice"><input class="with-gap" type="radio" id="'+data.questions[i].answers[j].id+'" value="'+data.questions[i].answers[j].id+'" name="choice" /><label for="'+data.questions[i].answers[j].id+'">'+data.questions[i].answers[j].answer_content+'</label></div>');
+				}					
+				
+        if (i == data.questions.length - 1) {
+          $("#demo").remove();
+					$('.submit').css('display','block');
+				}
+
+			$(".choice").click(function() {
+    var radioButton = $(this).find('input');
+    $(radioButton).prop("checked", true);
+      });
+			$('.question-attempted center').html('<div class="content-attempt" style="text-align:center;display:inline-block;">Attempted</div><br /><div class="item-container" style="display:inline-block;"><center style="padding:20px;"><div style="text-align:center;display:inline-block;">'+checked.length+'</div></center></div>');
+			$('.question-remaining center').html('<div class="content-remaining" style="text-align:center;display:inline-block;">Remaining</div><br /><div class="item-container" style="display:inline-block;"><center style="padding:20px;"><div style="text-align:center;display:inline-block">'+(data.questions.length-checked.length)+'</div></center></div>');
+
+
+		})
+});
+  $(".fix-mob-touch .choice").on("mousedown mouseup mouseleave", function(e){
+    $(this).toggleClass( "active", e.type === "mousedown" );
+  });
+
+  $(".submit, .submitall").on("click", function(){
+     $.ajax({
+        url: "/scores",
+        type: "POST",
+        data: {exam_id: <%= @exam.id %>, answer: checked},   
+        success: function(response) {
+
+          // window.location.href="<%= root_path %>";
+						console.log(response);
+						$('.submitall').css('pointer-events','none');
+											$('.remaining').countdown('destroy');
+            $(".removecontainer").remove(); 
+            $(".sidebar").remove();
+            $("#demo").remove();
+            $(".submit").remove();
+
+						$('.wrapper').html('');
+						var correct_question = response.correct_question_id;
+			
+			if(response.score_info.score_value !== undefined){
+							$(".wrapper").append('<div align=""><!-- Report Card icon by Icons8 --><img src="https://png.icons8.com/report-card/color/48" title="Report Card" width="48" height="48"><div class="review">Review</div></div><div align="center" class ="user_score" >Score:' + response.score_info.score_value+' % </div><br>');
+						}else{
+            	$(".wrapper").append("<h4 class ='user_score' >"+response.error+"</h4>");
+						}
+						$('.wrapper').append('<div class="row content-remain-attempt"><div class="col s6"><div class="attempt light-green"><div class="" style="text-align:center;display:inline-block;color:white;">Attempted</div><div class="item-container" style="display:inline-block;"><div class="blue" style="text-align:center;display:inline-block;padding:8px;margin-left:25px;width: 40px;color: white; height: 40px;font-weight: 500; border-radius: 3px;">'+checked.length+'</div></div></div></div><div class="col s6" style="text-align:right"><div class="attempt" style="background:#ff4081;"><div class="" style="text-align:center;display:inline-block;color:white;">Not attempted</div><div class="item-container" style="display:inline-block;"><div style="text-align:center;display:inline-block;padding:8px;margin-left:25px;width: 40px;color: white; height: 40px;font-weight: 500; border-radius: 3px;" class="blue">'+(total_question-checked.length)+'</div></div></div></div></div>');
+						$('.wrapper').css('background','white');
+						$('.wrapper').addClass('addwrapper');
+						$('.wrapper').append('<ul class="collapsible" data-collapsible="accordion"> </ul>');
+						console.log(jsoncollection);
+						for(x=0;x<jsoncollection.questions.length;x++){
+							$('ul.collapsible ').append('<li><div class="collapsible-header" identifier="'+jsoncollection.questions[x].id+'"><i class="fa  fa-times"></i>'+jsoncollection.questions[x].question_content+'</div><div class="collapsible-body" id="'+jsoncollection.questions[x].answers[0].id+'"><span><i class="fa fa-2x fa-long-arrow-right"></i>  '+jsoncollection.questions[x].answers[0].answer_content+'</span></div><div class="collapsible-body" id="'+jsoncollection.questions[x].answers[1].id+'"><span><i class="fa fa-2x fa-long-arrow-right"></i>  '+jsoncollection.questions[x].answers[1].answer_content+'</span></div><div class="collapsible-body" id="'+jsoncollection.questions[x].answers[2].id+'"><span><i class="fa fa-2x fa-long-arrow-right"></i>  '+jsoncollection.questions[x].answers[2].answer_content+'</span></div><div class="collapsible-body" id="'+jsoncollection.questions[x].answers[3].id+'"><span><i class="fa fa-2x fa-long-arrow-right"></i>  '+jsoncollection.questions[x].answers[3].answer_content+'</span></div></li>');
+						}
+
+$(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+        
+			$.each(checked,function (k,v) {
+				$('#'+v+'').addClass('red');
+			})
+			var correct=response.correct_ids;
+			$.each(correct,function(k,v){
+				$('#'+v+'').addClass('green');
+			});
+			$.each(correct_question,function(k,v){
+				// $('div[ques='+v+'] i').html(' ');
+				$('div[identifier='+v+'] i').removeClass('fa fa-times');
+				$('div[identifier='+v+'] i').addClass('fa fa-check');
+				})
+	 Materialize.toast('Please click the question to view answer', 5000,'rounded');
+
+			$('.wrapper').append('<center><%= j link_to 'Back to Dashboard', '/dashboard', class: 'btn blue ' %></center>')
+			}
+      });
+  });
+});
+</script>
+<style type="text/css" media="">
+.content-remain-attempt{
+	color:white;
+}
+.right{
+	float:right;
+}
+.wrong{
+	background:white;
+}
+.fa-check{
+	color:green;
+}
+.fa-times{
+	color:red;
+}
+div.red span, div.green span, div.green i, div.red i{
+	color:white !important;
+}
+.collapsible-header{
+	font-size:18px;
+	letter-spacing:0.2px;
+}
+.collapsible-body span{
+	letter-spacing:0.1px;
+	color:#586069!important;
+}
+.fa-2x{
+	font-size:23px;
+	margin-right:10px;
+}
+</style>

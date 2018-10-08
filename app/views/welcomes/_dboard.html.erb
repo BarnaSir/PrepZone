@@ -1,0 +1,139 @@
+<br />
+<div class="row ">
+	<center style="">
+		<h4 align="center" class="text-center text-heading">Practise</h4>
+	</center>
+</div>
+
+<div class="row" style="margin:20px;">
+	<div class="col s12 m4 subjects ">
+   <div class="card" style="background-color:white;">
+      <div class="card-content">
+         <center>	
+					<%= image_tag 'chemistry.png',class:'sub-pic' %>
+         </center>
+				 <br />
+         <center style="overflow:hidden">
+						 <%= link_to '<p style="margin:0;font-size:17px;">Chemistry</p>'.html_safe, 'practise?category=Chemistry', class:"btn waves-effect waves-light main-btn" %>
+         </center><br>
+      </div>
+   </div>
+</div>
+	<div class="col s12 m4 subjects ">
+   <div class="card" style="background-color:white;">
+      <div class="card-content">
+         <center>	
+					<%= image_tag 'physics.png',class:'sub-pic' %>
+         </center>
+				 <br />
+         <center style="overflow:hidden">
+						 <%= link_to '<p style="margin:0;font-size:17px;">Physics</p>'.html_safe, 'practise?category=Physics', class:"btn waves-effect waves-light main-btn" %>
+         </center><br>
+      </div>
+   </div>
+</div>
+	<div class="col s12 m4 subjects">
+   <div class="card" style="background-color:white;">
+      <div class="card-content">
+         <center>	
+					<%= image_tag 'maths.png',class:'sub-pic' %>
+         </center>
+				 <br />
+         <center style="overflow:hidden">
+						 <%= link_to '<p style="margin:0;font-size:17px;">Maths</p>'.html_safe, 'practise?category=Maths', class:"btn waves-effect waves-light main-btn" %>
+         </center><br>
+      </div>
+   </div>
+</div>
+</div>
+
+<div class="row" style="margin:20px;">
+	<div class="col s12 m5 offset-m1 subjects">
+   <div class="card" style="background-color:white;">
+      <div class="card-content">
+         <center>	
+					<%= image_tag 'english.png',class:'sub-pic' %>
+         </center>
+				 <br />
+         <center style="overflow:hidden">
+						 <%= link_to '<p style="margin:0;font-size:17px;">English</p>'.html_safe, 'practise?category=English', class:"btn waves-effect waves-light main-btn" %>
+         </center><br>
+      </div>
+   </div>
+</div>
+
+	<div class="col s12 m5 subjects ">
+   <div class="card" style="background-color:white;">
+      <div class="card-content">
+         <center>	
+					<%= image_tag 'aptitude.png',class:'sub-pic' %>
+         </center>
+				 <br />
+         <center style="overflow:hidden">
+						 <%= link_to '<p style="margin:0;font-size:17px;">Aptitude</p>'.html_safe, 'practise?category=Aptitute', class:"btn waves-effect waves-light main-btn" %>
+         </center><br>
+      </div>
+   </div>
+</div>
+
+</div>
+
+
+<style type="text/css" media="all">
+.text-heading{
+font-family:Roboto;font-weight:300;margin:0;display:inline-block;color: rgb(89, 102, 121);
+    padding: 7px 35px;
+    background: #f1f1f1;
+			border-radius:55px;
+}
+.main-btn{
+	background:white;
+	color:#f44336;
+	border:1px solid #f44336;
+}
+.main-btn:hover, .main-btn:focus{
+	background:#f44336;
+	color:white;
+}
+		.card .card-content{
+			padding:4px;
+		}
+		.slogan{
+			max-width:170px;
+		}
+		.sub-pic{
+			max-width:130px;
+		}
+		@media screen and (max-width:810px) and (min-width:650px){
+			.sub-pic{
+				max-width:100px;
+			}
+			.slogan{
+				max-width:130px;
+			}
+		}
+		@media screen and (max-width:650px) and (min-width:600px){
+			.sub-pic{
+				max-width:90px;
+			}
+			.slogan{
+				max-width:100px;
+			}
+		}
+		
+		@media screen and (max-width:1092px) and (min-width:993px){
+			.sub-pic{
+				max-width:100px;
+			}
+		}
+		.btn{
+			text-transform:capitalize;
+			overflow:hidden;
+		}
+</style>
+<%#= @ioe_mastery  %>
+<script charset="utf-8">
+	$(document).ready(function(){
+    $('.modal').modal();
+  });
+</script>

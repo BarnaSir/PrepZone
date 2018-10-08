@@ -1,0 +1,103 @@
+
+<%# <% if current_user.admin %>
+<%#     <% Category.all.each do |category| %>
+<%#         <%= link_to category.category, exams_path(category: category.category) %>
+<%#     <% end %>
+<%# 	<% end %>
+
+</div>
+<div>
+<style>
+
+		.html{
+			font-family:Roboto !important;
+		}
+    .mdl-button{
+        height:30px;
+        line-height:29px;
+    }
+    .listing-exam li{
+        background:white;
+        padding:7px;
+    }
+    .listing-exam li:hover{
+        background:#fafafa;
+    }
+    .listing-exam li span{
+        float:right;
+        font-size:16px;
+    }
+    .listing-exam span{
+        float:right;
+    }
+    .exam{
+        display:inline;
+        font-size:26px;
+        font-weight:300;
+    }
+    @media (max-width:600px){
+        .exam{
+            font-size:24px;
+        }
+        .fa-arrow-right{
+        display:block;
+        }
+    }
+    @media (min-width:601px){
+    }
+    @media (max-width:450px){
+        .exam{
+            font-size:18px;
+        }
+    }
+    h1.category{
+        text-align:center;  
+    }
+    @media (max-width:991px){
+        h1.category{
+        text-align:center;  
+        }
+    }
+
+</style>
+<h1 style="font-weight:200;" class="category"><%= params[:category] %></h1>
+    <div class="conetainer-fluid">
+        <div class="row">
+            <div class="col m12 l8" >
+							<% @exams.each do |exam| %>
+									<div>	<%= exam.name %></div>
+                </div>
+							<% end  %>
+
+            </div>
+            <div class="col m12 l4" style="">
+							   <div class="card" style="background-color:white;">
+      <div class="card-content">
+				<center>
+					<h5>Performance in <%= params[:category] %></h5>
+         </center>
+				 <br />
+				 <center>
+					 <h6>COme on this is your performance</h6>
+				 </center><br>
+      </div>
+   </div>
+
+
+			   <div class="card" style="background-color:white;">
+      <div class="card-content">
+				<center>
+					<h5>Advertisement</h5>
+         </center>
+				 <br />
+				 <center>
+					 <h6>This is where paisa comes </h6>
+				 </center><br>
+      </div>
+   </div>
+
+
+
+            </div>
+        </div>
+    </div>

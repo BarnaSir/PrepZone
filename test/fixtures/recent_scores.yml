@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: recent_scores
+#
+#  id          :integer          not null, primary key
+#  user_id     :integer
+#  exam_id     :integer
+#  temp        :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  category_id :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  exam: one
+  temp: 1
+
+two:
+  user: two
+  exam: two
+  temp: 1

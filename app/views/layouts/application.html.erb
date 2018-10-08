@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Entprep" %></title>
+		<%= csrf_meta_tags %>
+		<%= stylesheet_link_tag "application", params[:controller] %>
+<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+		<%= javascript_include_tag "application" %>
+ </head>
+  <body>
+        <div>
+					<div id="modal1" class="modal">
+						<div class="modal-content">
+							<h4>Sorry</h4>
+							<p>Not available now!</p>
+						</div>
+						<div class="modal-footer">
+							<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Okay</a>
+						</div>
+					</div>
+											<%= yield %>
+        </div>
+<script charset="utf-8">
+window.onload=function(){
+
+if (document.referrer.includes("exams") && !document.referrer.includes("exams?")){
+history.pushState(null, null, document.URL);
+window.addEventListener('popstate', function () {
+    history.pushState(null, null, document.URL);
+});
+console.log("it came from exams show page");
+} 
+}
+</script>
+  </body>
+</html>

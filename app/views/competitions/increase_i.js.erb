@@ -1,0 +1,40 @@
+$(document).ready(function(){
+// var currently_checked;
+// 	$('.next, .submit').click(function(){
+//     $("input:checked").each(function(){
+// 					currently_checked=true;
+//         })
+// });
+	<% if @question==nil %>
+			// $('.whole-page-div').remove();
+	$('p').empty();
+$('html').append('<div class="whole-page-div"><center class="blue" style="padding:50px;color:white;margin:30px;font-size:16px;">You have successfully competed in this examination. Please wait till Sunday to hear your result</center></div>');
+	<% else  %>
+	$('.whole-page-div').remove();
+	$('p').html('<div class="outerContainer"><div class="row"><div class="col examarea m10 offset-m1 s12 white"><div><div class="questionContainer"><%= @question %></div><% option_loop=0  %><div class="option"><% while option_loop <4  %><div class="choice"><input class="with-gap" type="radio" id="<%= @options[option_loop].id %>" value="<%= @options[option_loop].id %>" name="choice" /> <label for="<%= @options[option_loop].id %>"><%= @options[option_loop].answer_content  %></label></div><% option_loop=option_loop+1  %><% end  %></div><center><%= link_to "Next", increase_i_path(i:@i) ,class: 'next btn green',style: 'color:white', remote: true %></center></div></div></div></div><style> .countdown-rtl { direction: rtl; } .countdown-holding span { color: #888; } .countdown-row { clear: both; width: 100%; padding: 0px 2px; text-align: center; } .countdown-show1 .countdown-section { width: 98%; } .countdown-show2 .countdown-section { width: 48%; } .countdown-show3 .countdown-section { width: 32.5%; } .countdown-show4 .countdown-section { width: 24.5%; } .countdown-show5 .countdown-section { width: 19.5%; } .countdown-show6 .countdown-section { width: 16.25%; } .countdown-show7 .countdown-section { width: 14%; } .countdown-section { display: block; float: left; font-size: 75%; text-align: center; } .countdown-amount { font-size: 200%; } .countdown-period { display: block; } .countdown-descr { display: block; width: 100%; } .attempt{ background:#555; border:1px solid #987; display:inline-block; color:white; padding:0px 3px; } .content-remain-attempt{ font-size:18px; font-weight:300; } *{ font-family:Roboto; color:#24292e; } label p{ margin-bottom:0 !important; } .sidebar-item { text-align:center; font-weight:100; margin:0; font-size:30px; } #toast-container { top: auto !important; /* right: auto !important; */ bottom: 10%; left:auto !important; right:auto!important; } /* .nice-font{ */ /*   font-size:18px; */ /*   font-weight:100; */ /* } */ .user_score{ font-size:30px; font-weight:300; } .outerside{ /* margin:25px; */ color:rgba(0,0,0,0.87); font-weight:300; } .clocktime{ font-size:25px; } @media(max-width:992px){ .a{ margin-top:-30px !important; } } @media(max-width:697px) and (min-width:600px){ .outerside{ margin-bottom:0px !important; } } @media(max-width:700px){ .outerside{ margin:24px; } } @media(min-width:1000px){ .question-remaining{ padding-right:35px !important; } .question-attempted{ padding-left:35px !important; } } @media(max-width:725px) and (min-width:600px) { div.content-attempt{ margin-left:-30px !important; } div.content-remaining{ margin-right:-30px !important; }		} @media(max-width:700px){ .clocktime{ font-size:17px; } } @media (min-width:700px){ .clocktime{ font-size:18px !important; } } @media(max-width:700px) and (min-width:600px){ .clocktime{ margin:0;	} } @media(max-width:600px){	.timer{ margin-top:20px; } } .sans{ font-family: "Open Sans" } .choice{ padding:5px; background:#f5f5f5; margin:15px 7px; cursor:pointer;}.choice:hover, .choice:active{ background:#ddd; } label{ color:black; font-size:1.05em !important; } label:active{ background:#ddd; } .abc{ background:#ddd; } input[type="radio"], input[type="checkbox"]{ visibility: hidden; } @media(max-width:991px){ } div.question p{ font-size:1.05em ; } @media(max-width:600px){ .sidebar{ margin-top: 30px; } } [type="radio"]:not(:checked) + label:before, [type="radio"]:not(:checked) + label:after{ border:none; } .pagination li.active{ display:none; } .pagination li.active+li{ display:none; } .outerContainer{ margin:25px !important; } div.report{ position:relative;top:18px;display:inline-block;float:right; } .report i{ color:#039be5; } .report-link{ padding:3px; } .examName{ font-weight:100;display:inline-block; } .box{ display:none; } @media(min-width:701px){ .wrapper{ padding:30px; } } .add-option:hover{ color:#26a69a!important;	background:white!important; } .examarea{ } .addwrapper{ } .review{ display:inline-block; font-size:36px; position:relative; top:-10px; font-weight:300; left:20px; } .collapsible-header{ padding:15px; } .collapsible-body{ padding: 10px; }.examarea{box-shadow: 0px 0px 10px #ccc;padding:10px !important;}.questionContainer{padding:10px;}span.btn.purple{padding:0 49px;}@media(max-width:600px){span.btn.blue{margin-bottom:10px;}}.is-countdown *{color:white;font-size:16px;} </style>'); 
+
+	$('.counting').html('<%= $counting  %>').css('color','white');
+var checked=[];
+var currently_checked;
+	$('.next, .submit').click(function(){
+    $("input:checked").each(function(){
+          checked.push($(this).val());
+					currently_checked=true;
+        })
+});
+	var original_url=$('.next').attr('href');
+	$('input').click(function(){
+	var user_choice=$(this).val();
+		var additional_url;
+		additional_url='&user_choice='+user_choice;
+		url= original_url +additional_url;
+		$('.next').attr('href',url);
+		console.log(url);
+	});
+	$(".choice").click(function() {
+    var radioButton = $(this).find('input');
+    $(radioButton).prop("checked", true);
+      });
+
+	<% end  %>
+})

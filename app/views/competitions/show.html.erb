@@ -1,0 +1,43 @@
+<% if @already_competed %>
+	<!-- <h1 style="background:white;display:inline&#45;block;">You have already competed in this examination.</h1> -->
+$('html').append('<div class="whole-page-div"><center class="blue" style="padding:50px;color:white;margin:30px;font-size:16px;">You have already competed in this examination. Wait till next Sunday to get the result</center></div>');
+<% else  %>
+<div class="start whole-page-div">
+	<a href="/increase_i" data-remote="true" class="btn start-btn">Compete</a>
+</div>
+<div class="row" style="margin:30px;">
+	<div class="col time m6 s12">
+		<center>
+				<span class="btn blue">
+					Time Remaining: <span class="blue"></span>
+			</span>
+	</center>
+</div>
+
+<div class="col attempted m6 s12">
+	<center>
+		<span class="btn purple">Attempted: <span class="counting"></span>/100</span>
+		</center>
+</div>
+</div>
+<% end  %>
+<p></p>
+<script charset="utf-8">
+$(document).ready(function(){
+	$('.start-btn').click(function(){
+
+	$('span.btn.blue span').countdown({until: +1999,format:'MS',compact: true,onTick: highlightLast5,onExpiry: expired});
+	function expired(){
+		$('.next').attr("href",'/time_finished');
+		$('.next')[0].click();
+	}
+
+	function highlightLast5(periods) { 
+    if ($.countdown.periodsToSeconds(periods) === 5) { 
+        $(this).addClass('red'); 
+				$(this).css('color','white');
+    } 
+	}
+	});
+});
+</script>

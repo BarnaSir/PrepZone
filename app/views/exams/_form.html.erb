@@ -1,0 +1,29 @@
+<%= simple_form_for @exam do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name, :id => 'h' %>
+  </div>
+  <div> 
+    <style>
+      .select-wrapper span, .select-wrapper ul, .select-wrapper input {
+        display:none;
+      }
+    </style>
+    <%= f.collection_select :category_id, Category.all, :id, :category, {prompt:"Select a category"} %>
+  </div>
+  <div>
+    <p><strong>Questions:</strong></p>
+
+    <div id="nested-fields">
+      <%= f.simple_fields_for :questions do |question| %>
+        <%= render 'question_fields', :f => question %>
+      <% end %>
+
+      <div class="links">
+        <%= link_to_add_association 'Add Question', f, :questions %>
+      </div>
+    </div>
+  </div>
+
+  <%= f.submit %>
+<% end %>

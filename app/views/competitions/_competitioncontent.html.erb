@@ -1,0 +1,143 @@
+<style type="text/css" media="">
+.tabs{
+	overflow:hidden;
+}
+i{
+	vertical-align:middle;
+}
+.heading{
+	font-family:Ubuntu;
+	font-size:24px;
+	color:#fff;
+	padding:14px 20px;
+	letter-spacing:.5px;
+	background:#f0f0f0;
+}	
+@media (min-width:887px){
+}
+@media (max-width:601px){
+
+	 div.heading{
+		margin-top:-10px!important;
+	}
+}
+ul.tabs li a{
+	font-size:16px!important;
+
+}
+.card-title{
+	font-weight:bold !important;
+}
+</style>
+
+<div class="heading row red lighten-1" style="margin-bottom:0;margin-left:-10px;font-weight:bold;">
+	<center >
+Competitions	
+	</center>
+</div>
+
+<div class="row">
+    <div class="col s12" style="padding:0;">
+      <ul class="tabs">
+        <li class="tab col s4 disabled"><a href="#test1">Previous week</a></li>
+        <li class="tab col s4"><a class="active" href="#test2">This week</a></li>
+        <li class="tab col s4 disabled"><a href="#test3">Next week</a></li>
+      </ul>
+    </div>
+		<div id="test1" class="col s12">
+			Test 1
+		</div>
+	<div id="test2" class="col s12" style="">
+<div class="row" style="margin-top:40px;">
+<div class="col s12 m6 subjects ">
+   <div class="card" style="background-color:white;">
+      <div class="card-content">
+				<span class="card-title"><% if @this_week_competition  %><%= @this_week_competition[0].name %><% end  %></span>
+				<ul class="competition_feature" style="padding-left:30px">
+
+					<li><i class="material-icons">arrow_forward</i>Time: 2 hour</li>
+					<li><i class="material-icons">arrow_forward</i>Related: IOE model</li>
+					<li><i class="material-icons">arrow_forward</i>Prize: (N/A)</li>
+				</ul>
+				<div class="card-action" style="padding-bottom:0">
+					<% if @this_week_competition  %>
+					<%= link_to 'Compete', competition_path(@this_week_competition[0])  %>	
+				<% end  %>
+					<!-- <a href="#">Invite</a> -->
+				</div>
+      </div>
+   </div>
+</div>
+
+<div class="col s12 m6 subjects ">
+   <div class="card" style="background-color:white;">
+      <div class="card-content">
+				<span class="card-title">Last Exam Summary</span>
+				<ul class="competition_feature" style="padding-left:30px">
+
+					<li><i class="material-icons">arrow_forward</i>Score:
+						<%  if @visible_score %><%= @visible_score.score  %><% else  %><span>N/A</span><% end  %></li>
+						<li><i class="material-icons">arrow_forward</i>Rank:<%  if @visible_score %><%= @visible_score.rank %><% else  %><span>N/A</span><% end  %></li>
+						</li>
+					<li><i class="material-icons">arrow_forward</i>Progress: N/A</li>
+				</ul>
+				<div class="card-action" style="padding-bottom:0">
+						 <%= link_to '<p style="margin:0;font-size:17px;">View Details</p>'.html_safe, '#modal1', class:"waves-effect waves-light main-btn modal-trigger" %>
+				</div>
+      </div>
+   </div>
+</div>
+
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+</div>
+
+	</div>
+	<div id="test3" class="col s12">
+		Test 3
+	</div>
+  </div>
+
+<div class="heading row red lighten-1" style="margin-left:-10px;font-weight:bold;">
+	<center >
+Your recent Competitions	
+	</center>
+</div>
+<div class="row">
+	<div class="col s12">
+		<div class="card">
+			<div class="">
+ <table class="bordered highlight centered ">
+        <thead>
+          <tr>
+              <th>Name</th>
+              <th>Rank</th>
+              <th>Score</th>
+          </tr>
+        </thead>
+
+        <tbody>
+				 <% if @recent_scores  %>
+					<% @recent_scores.each do |last_scores| %>
+						<tr>
+							<td><%= Competition.find_by(id: last_scores.competition_id).name  %></td>
+							<td><%=  last_scores.rank %></td>
+							<td><%= last_scores.score  %></td>
+						</tr>
+					<% end  %>
+				<% end  %>
+        </tbody>
+      </table>
+			</div>
+		</div>
+	</div>
+</div>
+<script charset="utf-8">
+	
+  $(document).ready(function(){
+		$('ul.tabs').tabs();
+  });
+        
+</script>

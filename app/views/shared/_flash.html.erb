@@ -1,0 +1,9 @@
+<% flash.each do |message_type, message| %>
+<script charset="utf-8">
+$(document).ready(function(){
+
+var $toastContent = $('<span><%= message %></span>');
+  Materialize.toast($toastContent, 5000);
+});
+</script>
+<% end %>

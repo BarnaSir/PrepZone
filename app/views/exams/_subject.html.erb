@@ -1,0 +1,102 @@
+
+<style type="text/css" media="">
+.category{
+	display:inline-block;
+font-weight:300;color:#455358;
+font-size:24px;
+padding:2px 15px;
+background:#efefef;
+margin-left:13px;
+}
+.mastery{
+	display:inline-block;
+	float:right;
+	font-size:24px;
+	position:relative;
+	right:5px;
+	margin-right:8px;
+}
+</style>
+<div>
+<div align="center" style="" class="category "><%= params[:category] %></div>
+<div class="mastery category"></div>
+</div>
+<div class="row mybox-container" style="margin-bottom:0 !important;margin:10px;">
+
+	<% counter = 0  %>
+	<% accumulator=0  %>
+	<% mastery=0  %>
+	<% @practises.each do |practise|  %>
+<div class="col s12 m3 s3 pad-top">
+   <div class="card" style="background-color:white;">
+      <div class="card-content">
+				<center>
+				<h6 class="sub"><%= practise.name  %></h6>
+				<div class="practice-info">
+					<br />
+					<%= link_to 'Practise',practise_path(practise),class:'prac_btn' %>
+					<br />
+					<br />
+					<% RecentScore.where(exam_id: practise.id,user_id: current_user.id).each do |temp_score| %>
+						<% accumulator = accumulator+temp_score.temp %>
+						<% counter=counter+1  %>
+					<% end  %>
+					<div style="margin-bottom:6px;" class="test-info">Tests taken:&nbsp;&nbsp;<span><%= Score.where(user_id:current_user.id,exam_id:practise.id).length  %></span></div>
+					<div class="progress-info">Score:&nbsp;&nbsp;<span><% if !RecentScore.find_by(:exam_id => practise.id, :user_id => current_user.id).nil? %><%= RecentScore.find_by(:exam_id => practise.id, :user_id => current_user.id).temp %><% else %><%= "N/A" %><% end %></span></div>
+				</div>
+			</center>
+      </div>
+   </div>
+</div>
+<% end  %>
+
+<% if @practises.length != 0  %>
+<% number_of_chapters = @practises.length.to_f %>
+<% mastery=((accumulator/number_of_chapters)).floor %> 
+<% end  %>
+
+<script charset="utf-8">
+$(".mastery").html("<span>Mastery&nbsp;</span><%= mastery%>%");
+</script>
+</div>
+
+<style type="text/css" media="all">
+.test-info{
+border:1px solid #007aff;
+background:#007aff;
+padding:4px;
+color:white!important;
+	border-radius:5px;
+}
+.progress-info{
+	border:1px solid #01579b;
+background:white;
+padding:4px;
+color:black!important;
+	border-radius:5px;
+}
+.test-info span, .progress-info span{
+
+}
+.test-info,.progress-info{
+color:#444;	
+}
+.prac_btn{
+border:1px solid blue;
+padding:8px;
+margin-bottom:6px;
+	border-radius:5px;
+}	
+.prac_btn:hover{
+	background:blue;
+	color:white;
+}
+.card{
+	border-bottom:4px solid red;
+}
+.sub{
+	font-family:hurme_no2-webfont,-apple-system;
+	text-transform:uppercase;
+	font-size:16px;
+}
+</style>

@@ -1,0 +1,18 @@
+<style type="text/css">
+	*{
+		list-style: none;
+	}
+</style>
+<div id="flash">
+  <% if object.errors.any? %>
+  <div id="error_explanation">
+  <button type="button" class="close" data-dismiss="alert" >&times;  </button>
+    <ul class="alert alert-danger">
+    <% object.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+</div>
+

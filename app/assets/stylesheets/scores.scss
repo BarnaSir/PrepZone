@@ -1,0 +1,137 @@
+
+// Place all the styles related to the scores controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "materialize/components/color";
+@import 'materialize';
+
+nav{
+	background:red;
+}
+
+html{
+				background: #fafafa;
+}
+
+
+*{
+    		box-sizing: border-box;
+    	}
+    	.navbar-fixed {
+    	position: absolute;
+    	height: 64px;
+}
+    	#header{
+            display: block;
+        }
+        nav{
+            background-color: red;
+            position: fixed;
+            width: 100%;
+        }
+        .left {
+            float: left !important;
+        }
+        nav ul {
+            margin: 0;
+        }
+        ul {
+            padding: 0;
+        }
+        ul {
+            list-style-type: none;
+        }
+        .header--wrapper {
+		    margin: 10px auto 0 240px;
+		    width: calc(100% - 540px);
+		    height: 40px;
+		    display: inline-block;
+		    position: relative;
+		}
+		input.header-search-input {
+    display: block;
+    padding: 8px 8px 8px 72px;
+    width: 100%;
+    background: rgba(245,245,245,0.3);
+    height: 24px;
+    -webkit-transition: all 200ms ease;
+    transition: all 200ms ease;
+    border: none;
+    font-size: 16px;
+    appearance: textfield;
+    font-weight: 400;
+    outline: none;
+    border-radius: 3px;
+}
+		nav .nav-wrapper {
+    position: relative;
+    height: 100%;
+}
+	.header-search-wrapper i {
+    position: absolute;
+    font-size: 24px;
+    top: 6px;
+    left: 24px;
+    line-height: 32px !important;
+    -webkit-transition: color 200ms ease;
+    transition: color 200ms ease;
+}
+
+	.logo-wrapper {
+    margin: 0;
+}
+	.brand-logo{
+		padding:15px 8px !important;
+	}
+	.header-search-wrapper input:focus{
+	  border-bottom: 1px solid #ff0000 !important; 
+    box-shadow: 0 1px 0 0 #ff0000 !important; 
+	}
+	
+#content .container .row {
+    margin-bottom: 0;
+}
+@media only screen and (min-width: 601px) {
+    .container {
+    width: 98%}
+}
+@media only screen and (min-width: 993px) {
+    .container {
+    width: 98%}
+}
+@media only screen and (max-width: 993px) {
+    #main {
+    padding-left: 0;
+}
+}
+
+.pad-top{
+    padding:3px !important;
+}
+
+.fix-img-height{
+    height:200px;
+} 
+
+.card-content{
+    text-align:justify;
+}
+
+.btn-floating i{
+    font-size: 1.5rem;
+}
+
+.mdl-textfield__input{
+border-bottom: 1px solid rgba(0,0,0, 0.12) !important;
+    
+}
+
+.mdl-textfield {
+    padding:15px 0;
+}
+@media screen and (max-width:380px){
+	.card{
+		margin:0;
+	}
+}
+

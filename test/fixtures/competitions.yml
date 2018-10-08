@@ -1,0 +1,22 @@
+# == Schema Information
+#
+# Table name: competitions
+#
+#  id            :integer          not null, primary key
+#  name          :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  category_id   :integer
+#  slug          :string
+#  starting_date :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: 1
+
+two:
+  name: MyString
+  type: 1
