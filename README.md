@@ -32,7 +32,7 @@ Start the Rails app.
 
      rails server
      
-##For admin:
+## For admin:
 
 * Sign up for a normal account.
 * Provide the admin access to your account from the rails console.
